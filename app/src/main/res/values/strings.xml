@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">PopularMovie</string>
+
+
+    <!-- preference strings -->
+    <!-- Label for the temperature units preference [CHAR LIMIT=30] -->
+    <string name="pref_sort_label">Movies Order By</string>
+
+    <string name="pref_sort_label_desc">Most Popular</string>
+    <string name="pref_sort_label_high">Highest Rated</string>
+    <string name="pref_sort_key" translatable="false">units</string>
+    <string name="pref_sort_desc" translatable="false">desc</string>
+    <string name="pref_sort_high" translatable="false">high</string>
+</resources>
