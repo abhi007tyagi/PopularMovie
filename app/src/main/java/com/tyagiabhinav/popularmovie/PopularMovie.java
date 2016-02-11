@@ -2,6 +2,8 @@ package com.tyagiabhinav.popularmovie;
 
 import android.app.Application;
 
+import com.tyagiabhinav.popularmovie.Util.PreferenceHelper;
+
 /**
  * Created by abhinavtyagi on 05/02/16.
  */
@@ -27,6 +29,9 @@ public class PopularMovie extends Application {
     private void init() {
         mApp = this;
         isInitialized = true;
+
+        //Initialize Preference Helper
+        PreferenceHelper.init(getApplicationContext());
     }
 
     /**

@@ -20,10 +20,11 @@ import android.widget.GridView;
 
 import com.tyagiabhinav.popularmovie.DB.MovieContract;
 import com.tyagiabhinav.popularmovie.Model.Movie;
-import com.tyagiabhinav.popularmovie.Network.ServiceAsync;
+import com.tyagiabhinav.popularmovie.Network.MovieSyncAdapter;
 import com.tyagiabhinav.popularmovie.R;
 import com.tyagiabhinav.popularmovie.UI.Activities.DetailsActivity;
 import com.tyagiabhinav.popularmovie.UI.Adapters.PosterCursorAdapter;
+import com.tyagiabhinav.popularmovie.Util.PreferenceHelper;
 
 import java.util.ArrayList;
 
@@ -32,7 +33,6 @@ public class MoviePosterFragment extends Fragment implements LoaderManager.Loade
     private static final String LOG_TAG = MoviePosterFragment.class.getSimpleName();
 
     private View rootView;
-    //    private PosterAdapter posterAdapter;
     private PosterCursorAdapter posterCursorAdapter;
     private ArrayList<Movie> movies;
 
@@ -147,12 +147,16 @@ public class MoviePosterFragment extends Fragment implements LoaderManager.Loade
         //Default order
         if (sortType.equalsIgnoreCase(getString(R.string.pref_sort_desc))) {
             sortOrder = MovieContract.MovieEntry.COL_POPULARITY + " DESC";
-            ServiceAsync discoverMovieService = new ServiceAsync(getActivity(), this, ServiceAsync.DISCOVER_MOVIES_SERVICE_DESC);
-            discoverMovieService.execute();
+            PreferenceHelper.setServiceType(MovieSyncAdapter.DISCOVER_MOVIES_SERVICE_DESC);
+            MovieSyncAdapter.syncImmediately(getActivity());
+//            ServiceAsync discoverMovieService = new ServiceAsync(getActivity(), this, ServiceAsync.DISCOVER_MOVIES_SERVICE_DESC);
+//            discoverMovieService.execute();
         } else if (sortType.equalsIgnoreCase(getString(R.string.pref_sort_high))) {
             sortOrder = MovieContract.MovieEntry.COL_USER_RATING + " DESC";
-            ServiceAsync discoverMovieService = new ServiceAsync(getActivity(), this, ServiceAsync.DISCOVER_MOVIES_SERVICE_HIGH);
-            discoverMovieService.execute();
+            PreferenceHelper.setServiceType(MovieSyncAdapter.DISCOVER_MOVIES_SERVICE_HIGH);
+            MovieSyncAdapter.syncImmediately(getActivity());
+//            ServiceAsync discoverMovieService = new ServiceAsync(getActivity(), this, ServiceAsync.DISCOVER_MOVIES_SERVICE_HIGH);
+//            discoverMovieService.execute();
         }
 //        else if(sortType.equalsIgnoreCase(getString(R.string.pref_sort_fav))) {
 //            Uri favMovies = MovieContract.FavMovieEntry.buildFavMovieUri();

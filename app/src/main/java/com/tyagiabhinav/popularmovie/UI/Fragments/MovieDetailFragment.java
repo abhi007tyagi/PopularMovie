@@ -28,9 +28,10 @@ import android.widget.ToggleButton;
 import com.squareup.picasso.Picasso;
 import com.tyagiabhinav.popularmovie.DB.MovieContract;
 import com.tyagiabhinav.popularmovie.Model.Movie;
-import com.tyagiabhinav.popularmovie.Network.ServiceAsync;
+import com.tyagiabhinav.popularmovie.Network.MovieSyncAdapter;
 import com.tyagiabhinav.popularmovie.PopularMovie;
 import com.tyagiabhinav.popularmovie.R;
+import com.tyagiabhinav.popularmovie.Util.PreferenceHelper;
 
 public class MovieDetailFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
@@ -94,14 +95,20 @@ public class MovieDetailFragment extends Fragment implements LoaderManager.Loade
             Log.d(LOG_TAG,"TRAILER -->"+movie.getTrailerPath());
             if(movie.getTrailerPath() == null || movie.getTrailerPath().trim().isEmpty()){
                 //get data from server
-                ServiceAsync extendedMovieService = new ServiceAsync(PopularMovie.getAPPContext(), ServiceAsync.MOVIES_TRAILER_SERVICE, movie.getId());
-                extendedMovieService.execute();
+                PreferenceHelper.setServiceType(MovieSyncAdapter.MOVIES_TRAILER_SERVICE);
+                PreferenceHelper.setMovieId(movie.getId());
+                MovieSyncAdapter.syncImmediately(getActivity());
+//                ServiceAsync extendedMovieService = new ServiceAsync(PopularMovie.getAPPContext(), ServiceAsync.MOVIES_TRAILER_SERVICE, movie.getId());
+//                extendedMovieService.execute();
             }
             Log.d(LOG_TAG, "REVIEW -->" + movie.getReview());
             if(movie.getReview() == null || movie.getReview().trim().isEmpty()){
                 //get data from server
-                ServiceAsync extendedMovieService = new ServiceAsync(PopularMovie.getAPPContext(), ServiceAsync.MOVIES_REVIEW_SERVICE, movie.getId());
-                extendedMovieService.execute();
+                PreferenceHelper.setServiceType(MovieSyncAdapter.MOVIES_REVIEW_SERVICE);
+                PreferenceHelper.setMovieId(movie.getId());
+                MovieSyncAdapter.syncImmediately(getActivity());
+//                ServiceAsync extendedMovieService = new ServiceAsync(PopularMovie.getAPPContext(), ServiceAsync.MOVIES_REVIEW_SERVICE, movie.getId());
+//                extendedMovieService.execute();
             }
 
             selectedMovieId = movie.getId();

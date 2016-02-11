@@ -33,7 +33,7 @@ public class HttpRequest {
      */
     public static String postData(String serviceURL, String data, String requestType){
 
-//        Log.d(LOG_TAG, "URL-->"+serviceURL);
+        Log.d(LOG_TAG, "URL-->"+serviceURL);
         String response = "";
         if(isNetworkAvailable()) {
 
@@ -69,7 +69,7 @@ public class HttpRequest {
                 while ((line = reader.readLine()) != null) {
                     result.append(line);
                 }
-//                Log.d(LOG_TAG, "RAW Response-->" + result.toString());
+                Log.d(LOG_TAG, "RAW Response-->" + result.toString());
                 response = new String(result.toString());
             } catch (IOException e) {
                 e.printStackTrace();

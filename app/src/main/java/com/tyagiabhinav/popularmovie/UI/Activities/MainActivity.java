@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.tyagiabhinav.popularmovie.Model.Movie;
+import com.tyagiabhinav.popularmovie.Network.MovieSyncAdapter;
 import com.tyagiabhinav.popularmovie.R;
 import com.tyagiabhinav.popularmovie.UI.Fragments.MovieDetailFragment;
 import com.tyagiabhinav.popularmovie.UI.Fragments.MoviePosterFragment;
@@ -61,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements MoviePosterFragme
 //            findViewById(R.id.movieDetailContainer).setVisibility(View.GONE);
 //        }
 
+        MovieSyncAdapter.initializeSyncAdapter(this);
     }
 
     @Override
