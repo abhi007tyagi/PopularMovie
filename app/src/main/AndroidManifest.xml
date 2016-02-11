@@ -25,6 +25,13 @@
         <activity
             android:name=".UI.Activities.SettingsActivity"
             android:parentActivityName=".UI.Activities.MainActivity" />
+
+        <provider
+            android:authorities="@string/content_authority"
+            android:name=".DB.MovieProvider"
+            android:exported="false"
+            android:syncable="true" />
+
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <bool name="dualPane">true</bool>
     <dimen name="column_width_grid">90dp</dimen>
     <dimen name="plot_text_size">14sp</dimen>
 </resources>

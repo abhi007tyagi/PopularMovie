@@ -6,6 +6,6 @@
     android:columnWidth="@dimen/column_width_grid"
     android:numColumns="auto_fit"
     android:stretchMode="columnWidth"
-    tools:context="com.tyagiabhinav.popularmovie.UI.Fragments.BlankFragment">
+    tools:context="com.tyagiabhinav.popularmovie.UI.Fragments.MoviePosterFragment">
 
 </GridView>

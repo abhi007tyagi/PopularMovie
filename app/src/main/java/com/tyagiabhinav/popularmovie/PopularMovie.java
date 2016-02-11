@@ -10,6 +10,8 @@ public class PopularMovie extends Application {
     private static PopularMovie mApp;
     private boolean isInitialized;
 
+    private int mPosition = 0;
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -33,5 +35,13 @@ public class PopularMovie extends Application {
      */
     public static PopularMovie getAPPContext() {
         return mApp;
+    }
+
+    public int getmPosition() {
+        return mPosition;
+    }
+
+    public void setmPosition(int mPosition) {
+        this.mPosition = mPosition;
     }
 }

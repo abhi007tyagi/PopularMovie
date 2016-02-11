@@ -8,7 +8,20 @@
 
     <string name="pref_sort_label_desc">Most Popular</string>
     <string name="pref_sort_label_high">Highest Rated</string>
+    <string name="pref_sort_label_fav">Favourite Movies</string>
     <string name="pref_sort_key" translatable="false">units</string>
     <string name="pref_sort_desc" translatable="false">desc</string>
     <string name="pref_sort_high" translatable="false">high</string>
+    <string name="pref_sort_fav" translatable="false">fav</string>
+
+    <string name="action_setting">Settings</string>
+    <string name="action_share">Share</string>
+
+    <string name="no_release_date">"Release Date: Not Known"</string>
+
+    <string name="mark_fav_btn">"Mark Favourite?"</string>
+
+    <string name="fav_btn">"Favourite"</string>
+
+    <string name="content_authority">com.tyagiabhinav.popularmovie</string>
 </resources>
